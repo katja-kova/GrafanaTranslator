@@ -22,6 +22,7 @@ sudo bash run.sh
 <kbd><img src="https://cdn.statically.io/flags/tr.svg" width="24"></kbd> Türkçe
 <kbd><img src="https://cdn.statically.io/flags/it.svg" width="24"></kbd> Italiano
 <kbd><img src="https://cdn.statically.io/flags/lv.svg" width="24"></kbd> Latviešu
+<kbd><img src="https://cdn.statically.io/flags/de.svg" width="24"></kbd> Deutsch
 
 ## Contributions
 

@@ -1,13 +1,50 @@
 #!/bin/bash
 
-# Write your translation instead of ##########
-
-# Grafana can completely die after translating, so we should create backup of build folder
 echo "Backup in /usr/share/grafana/public/backup"
 sudo cp -r /usr/share/grafana/public/build/ /usr/share/grafana/public/backup/
 cd /usr/share/grafana/public/build
 
 echo "Übersetzung gestartet..."
+
+# LOGIN PAGE
+# contributor: katja-kova
+# -----------------------------------------------------
+sed -i 's/"Welcome to "/"Wilkommen beim "/g' app*.js*
+sed -i 's/"Welcome to Grafana"/"Wilkommen beim KeepTrack!"/g' app*.js* # KeepTrack! use case
+sed -i 's/"Don'\''t get in the way of the data"/"Stören Sie keine Daten"/g' app*.js*
+sed -i 's/"Your single pane of glass"/"Ihre einzelne Glasscheibe"/g' app*.js*
+sed -i 's/"Built better together"/"Gemeinsam besser gebaut"/g' app*.js*
+sed -i 's/"Democratising data"/"Demokratisierung der Daten"/g' app*.js*
+
+sed -i 's/"Email or username"/"Email oder Benutzername"/g' app*.js*
+sed -i 's/"Password"/"Passwort"/g' app*.js*
+sed -i 's/"Log in"/"Einloggen"/g' app*.js*
+sed -i 's/"Logged in"/"Eingeloggt"/g' app*.js* # katja: not working
+sed -i 's/"email or username"/"Email oder Benutzername"/g' app*.js* # Not working yet, idk why # i removed placeholder 
+sed -i 's/"password"/"Passwort"/g' app*.js* # Not working yet, idk why # i removed placeholder
+sed -i 's/"Logging in..."/"Einloggen..."/g' app*.js*
+
+# alerts
+sed -i 's/"Email or username is required"/"E-Mail oder Benutzername ist erforderlich"/g' app*.js*
+sed -i 's/"Password is required"/"Passwort ist erforderlich"/g' app*.js*
+sed -i 's/"Invalid username or password"/"Ungültige Daten"/g' app*.js*
+
+# forgot password
+sed -i 's/"Forgot your password?"/"Passwort vergessen?"/g' app*.js*
+sed -i 's/"Reset password"/"Passwort zurücksetzen"/g' app*.js*
+sed -i 's/"User"/"Benutzer"/g' app*.js*
+sed -i 's/"Enter your information to get a reset link sent to you"/"Geben Sie Ihre Daten ein, um einen Reset-Link zu erhalten"/g' app*.js*
+sed -i 's/"Send reset email"/"Bestätigen"/g' app*.js*
+sed -i 's/"Back to login"/"Zurück zum Login"/g' app*.js*
+sed -i 's/"Did you forget your username or email? Contact your Grafana administrator."/"Haben Sie Ihren Benutzernamen oder Ihre E-Mail-Adresse vergessen? Wenden Sie sich an den Administrator."/g' app*.js*
+sed -i 's/"An email with a reset link has been sent to the email address. You should receive it shortly."/"Eine E-Mail mit einem Reset-Link wurde an die E-Mail-Adresse gesendet. Sie sollten es in Kürze erhalten."/g' app*.js*
+
+# footer
+sed -i 's/"Documentation"/"Dokumentation"/g' app*.js* # in KeepTrack! remove the footer
+sed -i 's/"Support"/"Support"/g' app*.js*
+sed -i 's/"Community"/"Community"/g' app*.js*
+sed -i 's/"Open Source"/"Open Source"/g' app*.js*
+sed -i 's/"New version available!"/"Neue Version verfügbar!"/g' app*.js*
 
 # TimePicker
 sed -i 's/"Last 5 minutes"/"Letzte 5 Minuten"/g' app*.js*
@@ -61,24 +98,6 @@ sed -i 's/"To"/"Zu"/g' app*.js*
 sed -i 's/"Local browser time"/"Lokale Browserzeit"/g' app*.js*
 sed -i 's/{className:"text-center"},"to")/{className:"text-center"},"zu")/g' app*.js*
 
-# Login page
-sed -i 's/"Welcome to Grafana"/"Wilkommen bei Grafana"/g' app*.js*
-sed -i 's/"Don'\''t get in the way of the data"/"Stören Sie keine Daten | Powered by Grafana"/g' app*.js*
-sed -i 's/"Your single pane of glass"/"Ihre einzelne Glasscheibe | Powered by Grafana"/g' app*.js*
-sed -i 's/"Built better together"/"Gemeinsam besser gebaut | Powered by Grafana"/g' app*.js*
-sed -i 's/"Democratising data"/"Demokratisierung der Daten | Powered by Grafana"/g' app*.js*
-
-sed -i 's/"Email or username"/"Email oder Benutzername"/g' app*.js*
-sed -i 's/"Password"/"Passwort"/g' app*.js*
-sed -i 's/"Forgot your password?"/"Passwort vergessen?"/g' app*.js*
-sed -i 's/"Log in"/"Einloggen"/g' app*.js*
-sed -i 's/"Logged in"/"Eingeloggt"/g' app*.js*
-sed -i 's/placeholder="email or username"/placeholder="Email oder Benutzername"/g' app*.js* # Not working yet, idk why 
-sed -i 's/placeholder="password"/placeholder="Passwort"/g' app*.js* # Not working yet, idk why 
-sed -i 's/"Logging in..."/"Einloggen..."/g' app*.js*
-sed -i 's/"Email or username is required"/"E-Mail oder Benutzername ist erforderlich"/g' app*.js*
-sed -i 's/"Password is required"/"Passwort ist erforderlich"/g' app*.js*
-
 # Other (not sorted yet)
 sed -i 's/title:"Dashboards"/title:"Dashboards"/g' app*.js*
 sed -i 's/tooltip:"Save dashboard"/tooltip:"Dashboard speichern"/g' app*.js*
@@ -129,6 +148,8 @@ sed -i 's/"filter values"/"Filterwerte"/g' app*.js*
 sed -i 's/"Clear filter"/"Filter löschen"/g' app*.js*
 sed -i 's/"(right-y)"/"(recht-Y)"/g' grafana.dark*.css
 
+#FOOTER
+sed -i 's/title:"Documentation"/title:"Dokumentation"/g' app*.js*
 sleep 5
 sudo service grafana-server restart
 echo "Übersetzung erledigt! Löschen Sie den Browser-Cache, um Änderungen zu sehen! (CTRL+F5)"

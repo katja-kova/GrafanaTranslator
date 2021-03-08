@@ -47,7 +47,7 @@ sed -i 's/"Open Source"/"Open Source"/g' app*.js*
 sed -i 's/"New version available!"/"Neue Version verfügbar!"/g' app*.js*
 
 # panel hover menu
-sed -i 's/"View"/"Überblick"/g' app*.js* # change the source file
+sed -i 's/"View"/"Überblick"/g' app*.js* # change the source file. not in build folder
 sed -i 's/"Edit"/"Bearbeiten"/g' app*.js*
 sed -i 's/"Share"/"Teilen"/g' app*.js*
 sed -i 's/"Inspect"/"Prüfen"/g' app*.js*

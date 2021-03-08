@@ -46,6 +46,16 @@ sed -i 's/"Community"/"Community"/g' app*.js*
 sed -i 's/"Open Source"/"Open Source"/g' app*.js*
 sed -i 's/"New version available!"/"Neue Version verfügbar!"/g' app*.js*
 
+# panel hover menu
+sed -i 's/"View"/"Überblick"/g' app*.js* # change the source file
+sed -i 's/"Edit"/"Bearbeiten"/g' app*.js*
+sed -i 's/"Share"/"Teilen"/g' app*.js*
+sed -i 's/"Inspect"/"Prüfen"/g' app*.js*
+sed -i 's/"More..."/"Mehr..."/g' app*.js*
+sed -i 's/"Duplicate"/"Duplizieren"/g' app*.js*
+sed -i 's/"More..."/"Kopieren"/g' app*.js*
+sed -i 's/"Remove"/"Entfernen"/g' app*.js*
+
 # TimePicker
 sed -i 's/"Last 5 minutes"/"Letzte 5 Minuten"/g' app*.js*
 sed -i 's/"Last 15 minutes"/"Letzte 15 Minuten"/g' app*.js*
